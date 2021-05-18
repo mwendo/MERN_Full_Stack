@@ -17,3 +17,9 @@ module.exports.getAllProducts = (req, res) => {
         .then(allProducts => res.json({product: allProducts}))
         .catch(err => res.json({message: "ERROR! YOU LITERALLY SUCK GET GOOD KID!"}));
 }
+
+module.exports.getProduct = (req, res) => {
+    Product.findOne({_id: req.params._id})
+        .then(oneProduct => res.json({product: oneProduct}))
+        .catch(err => res.json({message: "ERROR@ YOU LITERALLY SUCK GET GOOD KID!"}))
+}

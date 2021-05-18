@@ -11,3 +11,9 @@ module.exports.createProduct = (req, res) => {
         .then(newProduct => res.json({product: newProduct}))
         .catch(err => res.json({message: "ERROR! YOU LITERALLY SUCK GET GOOD KID!"}));
 }
+
+module.exports.getAllProducts = (req, res) => {
+    Product.find()
+        .then(allProducts => res.json({product: allProducts}))
+        .catch(err => res.json({message: "ERROR! YOU LITERALLY SUCK GET GOOD KID!"}));
+}

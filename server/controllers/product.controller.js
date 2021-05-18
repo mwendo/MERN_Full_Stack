@@ -23,3 +23,9 @@ module.exports.getProduct = (req, res) => {
         .then(oneProduct => res.json({product: oneProduct}))
         .catch(err => res.json({message: "ERROR@ YOU LITERALLY SUCK GET GOOD KID!"}))
 }
+
+module.exports.updateProduct = (req, res) => {
+    Product.findOneAndUpdate({_id: req.params._id}, req.body, {new:true})
+        .then(updatedProduct => res.json({product: updatedProduct}))
+        .catch(err => res.json({message: "ERROR@ YOU LITERALLY SUCK GET GOOD KID!"}));
+}

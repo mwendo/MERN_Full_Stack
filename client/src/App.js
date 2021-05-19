@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Main path="products/"/>
+        <Main path="product/"/>
         <Details path="product/:_id"/>
         <Update path="product/:_id/edit"/>
       </Router>

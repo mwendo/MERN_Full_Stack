@@ -9,9 +9,7 @@ const Main = () => {
     useEffect(() => {
         axios.get('http://localhost:8000/api/products')
             .then(res => {
-                // console.log("``", res);
                 setProduct(res.data.product);
-                // console.log("***", product);
                 setLoaded(true);
             });
     },[])

@@ -21,11 +21,17 @@ module.exports.getAllProducts = (req, res) => {
 module.exports.getProduct = (req, res) => {
     Product.findOne({_id: req.params._id})
         .then(oneProduct => res.json({product: oneProduct}))
-        .catch(err => res.json({message: "ERROR@ YOU LITERALLY SUCK GET GOOD KID!"}))
+        .catch(err => res.json({message: "ERROR! YOU LITERALLY SUCK GET GOOD KID!"}))
 }
 
 module.exports.updateProduct = (req, res) => {
     Product.findOneAndUpdate({_id: req.params._id}, req.body, {new:true})
         .then(updatedProduct => res.json({product: updatedProduct}))
-        .catch(err => res.json({message: "ERROR@ YOU LITERALLY SUCK GET GOOD KID!"}));
+        .catch(err => res.json({message: "ERROR! YOU LITERALLY SUCK GET GOOD KID!"}));
+}
+
+module.exports.deleteProduct = (req, res) => {
+    Product.deleteOne({_id: req.params._id})
+        .then(deleteConfirmation => res.json(deleteConfirmation))
+        .catch(err => res.json({message: "ERROR! YOU LITERALLY SUCK GET GOOD KID!"}));
 }
